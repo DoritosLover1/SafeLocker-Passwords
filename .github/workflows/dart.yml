@@ -11,39 +11,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ 1. Checkout code
       - uses: actions/checkout@v4
 
-      # ✅ 2. Setup Flutter
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
           channel: 'stable'
 
-      # ✅ 3. Ensure Flutter is up to date
       - name: Flutter Upgrade
         run: flutter upgrade
 
-      # ✅ 4. Create local.properties (fixes the null cast issue in Gradle)
       - name: Fix local.properties for CI
         run: |
           echo "sdk.dir=/usr/local/lib/android/sdk" > android/local.properties
           echo "flutter.sdk=$HOME/hostedtoolcache/flutter" >> android/local.properties
 
-      # ✅ 5. Get dependencies
       - name: Install dependencies
         run: flutter pub get
 
-      # ✅ 6. Analyze project
       - name: Analyze project source
         run: dart analyze
 
-      # ✅ 7. Build release APK
       - name: Build release APK
-        run: flutter build apk --release
+        run: flutter build apk --release --info
 
-      # ✅ 8. (Optional) Upload the built APK as an artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
