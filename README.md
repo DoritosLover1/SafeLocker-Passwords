@@ -63,7 +63,7 @@ dependencies:
 
 ---
 
-##🔒 Notes
+## 🔒 Notes
   - Make sure you remember your salt and password, otherwise your data cannot be recovered.
   - The app does not store or transmit any password or salt — everything is handled locally.
   - For stronger security, you can generate a random salt per file.
