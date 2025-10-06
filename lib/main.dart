@@ -1,14 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:pointycastle/pointycastle.dart' as pc;
-import 'package:flutter/foundation.dart';
 
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 
 void main() {
   runApp(const MyApp());
@@ -74,7 +74,7 @@ class FileHelper {
   Future<List<FileSystemEntity>> listFiles() async {
     final path = await _appDirectoryLocation;
     final directory = Directory(path);
-    final files = await directory.listSync();
+    final files = directory.listSync();
     return files.where((f) => f.path.endsWith(".txt")).toList();
   }
 }
@@ -104,7 +104,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
 
     final bigText = screenHeight * 0.05;
     return AppBar(
@@ -275,6 +274,7 @@ void _addPasswordDialog(final screenHeight, final screenWidth, final boxSized){
                           passwordAreaController.text,
                           Uint8List.fromList(utf8.encode(saltAreaController.text)),
                         );
+                        if (!mounted) return;
                         Navigator.of(context).pop();
                         setState(() {});
                       }, 
@@ -433,6 +433,7 @@ void _addRewritePasswordDialog(final screenHeight, final screenWidth, final boxS
                           passwordAreaController.text,
                           Uint8List.fromList(utf8.encode(saltAreaController.text)),
                         );
+                        if (!mounted) return;
                         Navigator.of(context).pop();
                         setState(() {});
                       }, 
@@ -506,7 +507,6 @@ void _addRewritePasswordDialog(final screenHeight, final screenWidth, final boxS
                   ListTile(
                     onTap: () async {
                       final screenHeight = MediaQuery.of(context).size.height;
-                      final screenWidth = MediaQuery.of(context).size.width;
                       final TextEditingController passwordAreaController = TextEditingController();
                       final TextEditingController saltAreaController = TextEditingController();
                       showModalBottomSheet(
@@ -602,6 +602,7 @@ void _addRewritePasswordDialog(final screenHeight, final screenWidth, final boxS
                                               passwordAreaController.text,
                                               Uint8List.fromList(utf8.encode(saltAreaController.text))
                                             );
+                                            if (!mounted) return;
                                             if(content.isNotEmpty){
                                               TextEditingController controllerContent = TextEditingController();
                                               controllerContent.text = content;
@@ -666,6 +667,7 @@ void _addRewritePasswordDialog(final screenHeight, final screenWidth, final boxS
                                       TextButton(
                                         onPressed: () {
                                           file.delete();
+                                          if (!mounted) return;
                                           Navigator.of(context).pop();
                                           setState(() {});
                                         }, 
@@ -675,6 +677,7 @@ void _addRewritePasswordDialog(final screenHeight, final screenWidth, final boxS
                                   );
                                 }
                               );
+                              if (!mounted) return;
                               setState(() {});
                             }   catch (e) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -783,6 +786,7 @@ void _addRewritePasswordDialog(final screenHeight, final screenWidth, final boxS
                                                 passwordAreaController.text,
                                                 Uint8List.fromList(utf8.encode(saltAreaController.text))
                                               );
+                                              if (!mounted) return;
                                               if(content.isNotEmpty){
                                                  _addRewritePasswordDialog(screenHeight, screenWidth, boxSized, filename.replaceAll(".txt", ""), content);
                                                 } else {
