@@ -24,6 +24,12 @@ jobs:
       # - uses: dart-lang/setup-dart@v1
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+        
       - name: Install dependencies
         run: flutter pub get
 
@@ -40,3 +46,6 @@ jobs:
       # want to change this to 'flutter test'.
       - name: Run tests
         run: dart test
+
+      - name: Run build
+        run: flutter build apk --release
