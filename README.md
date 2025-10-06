@@ -74,3 +74,14 @@ dependencies:
 ## 🧑‍💻 Author
   - Made by İhsan Demirci,
   - Just a developer who’s dumb as hell
+
+---
+
+## 🖼️ Screenshots
+![IMG-20251007-WA0006](https://github.com/user-attachments/assets/3c3d7d85-5a11-4956-94d5-666b0d43bd95)
+![IMG-20251007-WA0007](https://github.com/user-attachments/assets/bf387fd1-e776-43c6-89b3-5077c4ca6695)
+![IMG-20251007-WA0003](https://github.com/user-attachments/assets/d307687a-67c9-4948-a3ff-522bf5486346)
+![IMG-20251007-WA0002](https://github.com/user-attachments/assets/d8374473-4478-4ba0-859a-ee9680476bc1)
+![IMG-20251007-WA0004](https://github.com/user-attachments/assets/9bb53e1b-cffd-4168-b6ef-3352fdeea81c)
+![IMG-20251007-WA0005](https://github.com/user-attachments/assets/1c306894-204f-4aa0-bbdc-b0be6a52d6a5)
+
