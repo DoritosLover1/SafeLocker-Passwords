@@ -4,7 +4,7 @@ This app is a **secure password holder** made with Flutter.
 It lets you **store, encrypt, and decrypt** your passwords locally on your device using AES-GCM encryption with PBKDF2 key derivation.  
 Everything happens on your own device — **no cloud, no data tracking, no nonsense**.
 
-**THE BIGGEST PLUS SIDE IS THIS OPEN SOURCE PROJECT. EVERYBODY CHECKS WHAT IT IS AND TO DO. WHAT THE FUCK DO YOU WANT MORE.**
+**The biggest plus side is that this is an open-source project. Everyone can see what it is and what to do. What the fuck more do you want?**
 
 ---
 
